@@ -1,0 +1,11 @@
+<div class="pet-list">
+  <a class="pet-list-item"
+     *ngFor="let pet of pets; let index = index"
+     [routerLink]="[pet.id]">
+    <div class="row">
+      <div class="col-md-12">
+        <app-pet [pet]="pet"></app-pet>
+      </div>
+    </div>
+  </a>
+</div>
