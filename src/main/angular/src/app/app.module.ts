@@ -8,13 +8,15 @@ import {routes} from "./app.route";
 
 import {AppComponent} from './app.component';
 import {ListComponent} from './pet/list/list.component';
-import { PetComponent } from './pet/pet/pet.component';
+import {PetComponent} from './pet/list/pet/pet.component';
+import { PetDetailComponent } from './pet/pet-detail/pet-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListComponent,
-    PetComponent
+    PetComponent,
+    PetDetailComponent
   ],
   imports: [
     BrowserModule,
