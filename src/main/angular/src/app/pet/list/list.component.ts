@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 
 import {Pet} from "../../model/pet";
+import {Observable} from "rxjs";
+import {PetService} from "../../services/pet/pet.service";
 
 @Component({
   selector: 'app-list',
@@ -9,28 +11,13 @@ import {Pet} from "../../model/pet";
 })
 export class ListComponent implements OnInit {
 
-  pets: Pet[];
+  pets: Observable<Pet[]>;
 
-  constructor() {
+  constructor(private petService: PetService) {
   }
 
   ngOnInit() {
-    this.pets = [{
-      id: 1,
-      name: 'a'
-    }, {
-      id: 2,
-      name: 'b'
-    }, {
-      id: 3,
-      name: 'c'
-    }, {
-      id: 4,
-      name: 'd'
-    }, {
-      id: 5,
-      name: 'e'
-    }];
+    this.pets = this.petService.list();
   }
 
 }

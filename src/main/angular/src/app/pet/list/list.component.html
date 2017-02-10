@@ -1,6 +1,6 @@
 <div class="pet-list">
   <a class="pet-list-item"
-     *ngFor="let pet of pets; let index = index"
+     *ngFor="let pet of pets | async; let index = index"
      [routerLink]="[pet.id]">
     <div class="row">
       <div class="col-md-12">

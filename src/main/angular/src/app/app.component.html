@@ -1,5 +1,12 @@
 <header class="header">
-  <nav></nav>
+  <div class="title">
+    Pet Store
+  </div>
+  <nav>
+    <ul>
+      <li><a [routerLink]="['/pet']">List of pets</a></li>
+    </ul>
+  </nav>
 </header>
 <section class="container">
   <router-outlet></router-outlet>

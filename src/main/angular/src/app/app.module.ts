@@ -10,6 +10,7 @@ import {AppComponent} from './app.component';
 import {ListComponent} from './pet/list/list.component';
 import {PetComponent} from './pet/list/pet/pet.component';
 import { PetDetailComponent } from './pet/pet-detail/pet-detail.component';
+import {PetService} from "./services/pet/pet.service";
 
 @NgModule({
   declarations: [
@@ -24,7 +25,7 @@ import { PetDetailComponent } from './pet/pet-detail/pet-detail.component';
     HttpModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [],
+  providers: [PetService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
