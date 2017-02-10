@@ -1,14 +1,19 @@
-<header class="header">
-  <div class="title">
-    Pet Store
-  </div>
-  <nav>
-    <ul>
-      <li><a [routerLink]="['/pet']">List of pets</a></li>
-    </ul>
-  </nav>
-</header>
-<section class="container">
-  <router-outlet></router-outlet>
-</section>
-<footer></footer>
+<div class="container">
+  <header class="header ">
+    <div class="title row justify-content-center">
+      Pet Store
+    </div>
+    <nav class="navbar">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/pet']">List of pets</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <section>
+    <router-outlet></router-outlet>
+  </section>
+  <footer></footer>
+
+</div>

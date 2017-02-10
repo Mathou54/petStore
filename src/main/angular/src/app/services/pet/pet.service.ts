@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Http} from "@angular/http";
+import {Http, Response} from "@angular/http";
 
 import {Observable} from "rxjs";
 import 'rxjs/add/operator/map';
@@ -15,7 +15,11 @@ export class PetService {
 
   list(): Observable<Pet[]> {
     return this.http.get(`${URL}`)
-      .map(response => response.json() as Pet[]);
+      .map((response: Response) => response.json() as Pet[]);
   }
 
+  get(id: number): Observable<Pet> {
+    return this.http.get(`${URL}/${id}`)
+      .map((response: Response) => response.json() as Pet);
+  }
 }

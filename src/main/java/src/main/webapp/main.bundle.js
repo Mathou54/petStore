@@ -1,11 +1,78 @@
 webpackJsonp([1,4],{
 
-/***/ 331:
+/***/ 216:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_pet_pet_service__ = __webpack_require__(333);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(309);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__(677);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PetService; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var URL = '/api/pet';
+var PetService = (function () {
+    function PetService(http) {
+        this.http = http;
+    }
+    PetService.prototype.list = function () {
+        return this.http.get("" + URL)
+            .map(function (response) { return response.json(); });
+    };
+    PetService.prototype.get = function (id) {
+        return this.http.get(URL + "/" + id)
+            .map(function (response) { return response.json(); });
+    };
+    PetService = __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Injectable */])(), 
+        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === 'function' && _a) || Object])
+    ], PetService);
+    return PetService;
+    var _a;
+}());
+//# sourceMappingURL=E:/Workspaces/AngularTest/RBC/petStore/src/main/angular/src/pet.service.js.map
+
+/***/ }),
+
+/***/ 332:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__pet_list_list_component__ = __webpack_require__(333);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__pet_pet_detail_pet_detail_component__ = __webpack_require__(334);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return URL_PARAMS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return routes; });
+
+
+var URL_PARAMS = {
+    petId: 'petId'
+};
+var routes = [
+    { path: '', redirectTo: 'pet', pathMatch: 'full' },
+    { path: 'pet', component: __WEBPACK_IMPORTED_MODULE_0__pet_list_list_component__["a" /* ListComponent */] },
+    { path: 'pet/:' + URL_PARAMS.petId, component: __WEBPACK_IMPORTED_MODULE_1__pet_pet_detail_pet_detail_component__["a" /* PetDetailComponent */] }
+];
+//# sourceMappingURL=E:/Workspaces/AngularTest/RBC/petStore/src/main/angular/src/app.route.js.map
+
+/***/ }),
+
+/***/ 333:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_pet_pet_service__ = __webpack_require__(216);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ListComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -40,11 +107,14 @@ var ListComponent = (function () {
 
 /***/ }),
 
-/***/ 332:
+/***/ 334:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_pet_pet_service__ = __webpack_require__(216);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__(212);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_route__ = __webpack_require__(332);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PetDetailComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -56,14 +126,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
+
 var PetDetailComponent = (function () {
-    function PetDetailComponent() {
+    function PetDetailComponent(route, petService) {
+        this.route = route;
+        this.petService = petService;
     }
     PetDetailComponent.prototype.ngOnInit = function () {
-        this.pet = {
-            id: 42,
-            name: 'f'
-        };
+        this.pet = this.petService.get(this.route.snapshot.params[__WEBPACK_IMPORTED_MODULE_3__app_route__["b" /* URL_PARAMS */].petId]);
     };
     PetDetailComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_4" /* Component */])({
@@ -71,56 +143,16 @@ var PetDetailComponent = (function () {
             template: __webpack_require__(673),
             styles: [__webpack_require__(669)]
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* ActivatedRoute */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* ActivatedRoute */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__services_pet_pet_service__["a" /* PetService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__services_pet_pet_service__["a" /* PetService */]) === 'function' && _b) || Object])
     ], PetDetailComponent);
     return PetDetailComponent;
+    var _a, _b;
 }());
 //# sourceMappingURL=E:/Workspaces/AngularTest/RBC/petStore/src/main/angular/src/pet-detail.component.js.map
 
 /***/ }),
 
-/***/ 333:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(307);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__(677);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PetService; });
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-var URL = '/api/pet';
-var PetService = (function () {
-    function PetService(http) {
-        this.http = http;
-    }
-    PetService.prototype.list = function () {
-        return this.http.get("" + URL)
-            .map(function (response) { return response.json(); });
-    };
-    PetService = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Injectable */])(), 
-        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === 'function' && _a) || Object])
-    ], PetService);
-    return PetService;
-    var _a;
-}());
-//# sourceMappingURL=E:/Workspaces/AngularTest/RBC/petStore/src/main/angular/src/pet.service.js.map
-
-/***/ }),
-
-/***/ 388:
+/***/ 389:
 /***/ (function(module, exports) {
 
 function webpackEmptyContext(req) {
@@ -129,20 +161,20 @@ function webpackEmptyContext(req) {
 webpackEmptyContext.keys = function() { return []; };
 webpackEmptyContext.resolve = webpackEmptyContext;
 module.exports = webpackEmptyContext;
-webpackEmptyContext.id = 388;
+webpackEmptyContext.id = 389;
 
 
 /***/ }),
 
-/***/ 389:
+/***/ 390:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(477);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(478);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__environments_environment__ = __webpack_require__(512);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_app_module__ = __webpack_require__(508);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_app_module__ = __webpack_require__(509);
 
 
 
@@ -155,7 +187,7 @@ __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dyna
 
 /***/ }),
 
-/***/ 507:
+/***/ 508:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -188,21 +220,21 @@ var AppComponent = (function () {
 
 /***/ }),
 
-/***/ 508:
+/***/ 509:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(148);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(468);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(307);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__(325);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_route__ = __webpack_require__(509);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__app_component__ = __webpack_require__(507);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pet_list_list_component__ = __webpack_require__(331);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(469);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(309);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__(212);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_route__ = __webpack_require__(332);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__app_component__ = __webpack_require__(508);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pet_list_list_component__ = __webpack_require__(333);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pet_list_pet_pet_component__ = __webpack_require__(511);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pet_pet_detail_pet_detail_component__ = __webpack_require__(332);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__services_pet_pet_service__ = __webpack_require__(333);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pet_pet_detail_pet_detail_component__ = __webpack_require__(334);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__services_pet_pet_service__ = __webpack_require__(216);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -252,28 +284,6 @@ var AppModule = (function () {
 
 /***/ }),
 
-/***/ 509:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__pet_list_list_component__ = __webpack_require__(331);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__pet_pet_detail_pet_detail_component__ = __webpack_require__(332);
-/* unused harmony export URL_PARAMS */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return routes; });
-
-
-var URL_PARAMS = {
-    petId: 'petId'
-};
-var routes = [
-    { path: '', redirectTo: 'pet', pathMatch: 'full' },
-    { path: 'pet', component: __WEBPACK_IMPORTED_MODULE_0__pet_list_list_component__["a" /* ListComponent */] },
-    { path: 'pet/:' + URL_PARAMS.petId, component: __WEBPACK_IMPORTED_MODULE_1__pet_pet_detail_pet_detail_component__["a" /* PetDetailComponent */] }
-];
-//# sourceMappingURL=E:/Workspaces/AngularTest/RBC/petStore/src/main/angular/src/app.route.js.map
-
-/***/ }),
-
 /***/ 510:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -293,7 +303,7 @@ var Pet = (function () {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__(325);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__(212);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__model_pet__ = __webpack_require__(510);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PetComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -380,35 +390,35 @@ module.exports = ""
 /***/ 670:
 /***/ (function(module, exports) {
 
-module.exports = "<header class=\"header\">\n  <div class=\"title\">\n    Pet Store\n  </div>\n  <nav>\n    <ul>\n      <li><a [routerLink]=\"['/pet']\">List of pets</a></li>\n    </ul>\n  </nav>\n</header>\n<section class=\"container\">\n  <router-outlet></router-outlet>\n</section>\n<footer></footer>\n"
+module.exports = "<div class=\"container\">\n  <header class=\"header \">\n    <div class=\"title row justify-content-center\">\n      Pet Store\n    </div>\n    <nav class=\"navbar\">\n      <ul class=\"navbar-nav\">\n        <li class=\"nav-item\">\n          <a class=\"nav-link\" [routerLink]=\"['/pet']\">List of pets</a>\n        </li>\n      </ul>\n    </nav>\n  </header>\n  <section>\n    <router-outlet></router-outlet>\n  </section>\n  <footer></footer>\n\n</div>\n"
 
 /***/ }),
 
 /***/ 671:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"pet-list\">\n  <a class=\"pet-list-item\"\n     *ngFor=\"let pet of pets | async; let index = index\"\n     [routerLink]=\"[pet.id]\">\n    <div class=\"row\">\n      <div class=\"col-md-12\">\n        <app-pet [pet]=\"pet\"></app-pet>\n      </div>\n    </div>\n  </a>\n</div>\n"
+module.exports = "<div class=\"pet-list\">\n  <div class=\"pet-list-item\">\n    <div class=\"row\">\n      <div class=\"col-md-3 pt-3 pb-3\"\n           *ngFor=\"let pet of pets | async; let index = index\">\n        <app-pet [pet]=\"pet\"></app-pet>\n      </div>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
 /***/ 672:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"pet\">\n  <div class=\"row\"\n       *ngIf=\"pet\">\n    <div class=\"col-md-3\">Number:</div>\n    <div class=\"col-md-3\">{{pet.id}}</div>\n    <div class=\"col-md-3\">Name:</div>\n    <div class=\"col-md-3\">{{pet.name}}</div>\n  </div>\n</div>\n"
+module.exports = "<div class=\"pet\">\n  <div class=\"card\"\n       *ngIf=\"pet\">\n    <div class=\"card-block\">\n      <h4 class=\"card-title\">{{pet.name}}</h4>\n      <h6 class=\"card-subtitle\">\n        <div class=\"badge badge-pill badge-default\"\n             *ngIf=\"pet.new\">\n          New\n        </div>\n        <div class=\"badge badge-pill badge-info\"\n             *ngIf=\"pet.highlighted\">\n          Important\n        </div>\n      </h6>\n      <ul class=\"list-group list-group-flush\">\n        <li class=\"list-group-item\">\n          <span>Age</span>\n          <span>{{pet.age}}</span>\n        </li>\n        <li class=\"list-group-item\">\n          <a class=\"btn btn-primary\"\n             [routerLink]=\"[pet.id]\">\n            Detail\n          </a>\n        </li>\n      </ul>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
 /***/ 673:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"pet-detail\">\n  <div class=\"row\">\n    <div class=\"col-md-6\">\n      Number\n    </div>\n    <div class=\"col-md-6\">\n      {{pet.id}}\n    </div>\n  </div>\n  <div class=\"row\">\n    <div class=\"col-md-6\">\n      Name\n    </div>\n    <div class=\"col-md-6\">\n      {{pet.name}}\n    </div>\n  </div>\n  <div class=\"row\">\n    <div class=\"col-md-12\">\n      <div class=\"button-group\">\n        <button class=\"btn btn-primary\">Edit</button>\n        <button class=\"btn btn-danger\">Delete</button>\n      </div>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<div class=\"pet-detail\">\n  <div class=\"row\">\n    <div class=\"col-md-6\">\n      Number\n    </div>\n    <div class=\"col-md-6\">\n      {{(pet | async).id}}\n    </div>\n  </div>\n  <div class=\"row\">\n    <div class=\"col-md-6\">\n      Name\n    </div>\n    <div class=\"col-md-6\">\n      {{(pet | async).name}}\n    </div>\n  </div>\n  <div class=\"row\">\n    <div class=\"col-md-12\">\n      <div class=\"button-group\">\n        <button class=\"btn btn-primary\">Edit</button>\n        <button class=\"btn btn-danger\">Delete</button>\n      </div>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
 /***/ 692:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(389);
+module.exports = __webpack_require__(390);
 
 
 /***/ })

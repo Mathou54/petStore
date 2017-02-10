@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
 import {Pet} from "../../model/pet";
+import {PetService} from "../../services/pet/pet.service";
+import {ActivatedRoute} from "@angular/router";
+import {URL_PARAMS} from "../../app.route";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-pet-detail',
@@ -9,15 +13,13 @@ import {Pet} from "../../model/pet";
 })
 export class PetDetailComponent implements OnInit {
 
-  pet: Pet;
+  pet: Observable<Pet>;
 
-  constructor() { }
+  constructor(private route: ActivatedRoute,
+    private petService: PetService) { }
 
   ngOnInit() {
-    this.pet = {
-      id: 42,
-      name: 'f'
-    };
+    this.pet = this.petService.get(this.route.snapshot.params[URL_PARAMS.petId]);
   }
 
 }

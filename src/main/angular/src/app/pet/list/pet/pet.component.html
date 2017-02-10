@@ -1,9 +1,30 @@
 <div class="pet">
-  <div class="row"
+  <div class="card"
        *ngIf="pet">
-    <div class="col-md-3">Number:</div>
-    <div class="col-md-3">{{pet.id}}</div>
-    <div class="col-md-3">Name:</div>
-    <div class="col-md-3">{{pet.name}}</div>
+    <div class="card-block">
+      <h4 class="card-title">{{pet.name}}</h4>
+      <h6 class="card-subtitle mb-2">
+        <div class="badge badge-pill badge-default"
+             *ngIf="pet.new">
+          New
+        </div>
+        <div class="badge badge-pill badge-info"
+             *ngIf="pet.highlighted">
+          Important
+        </div>
+      </h6>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+          <span>Age</span>
+          <span>{{pet.age}}</span>
+        </li>
+        <li class="list-group-item">
+          <a class="btn btn-primary"
+             [routerLink]="[pet.id]">
+            Detail
+          </a>
+        </li>
+      </ul>
+    </div>
   </div>
 </div>

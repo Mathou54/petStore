@@ -4,7 +4,7 @@
       Number
     </div>
     <div class="col-md-6">
-      {{pet.id}}
+      {{(pet | async).id}}
     </div>
   </div>
   <div class="row">
@@ -12,7 +12,7 @@
       Name
     </div>
     <div class="col-md-6">
-      {{pet.name}}
+      {{(pet | async).name}}
     </div>
   </div>
   <div class="row">
