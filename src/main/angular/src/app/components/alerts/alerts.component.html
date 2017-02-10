@@ -1,0 +1,10 @@
+<div class="alerts">
+  <div *ngFor="let alert of alerts; let index = index"
+       [class]="'alert alert-' + alert.type">
+    <button type="button" class="close" aria-label="Close"
+            (click)="close(index)">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <span>{{alert.text}}</span>
+  </div>
+</div>

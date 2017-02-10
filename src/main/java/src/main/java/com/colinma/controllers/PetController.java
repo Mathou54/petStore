@@ -1,5 +1,6 @@
 package com.colinma.controllers;
 
+import com.colinma.controllers.exceptions.NoSuchDataException;
 import com.colinma.model.Pet;
 import com.colinma.services.PetService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,30 +19,34 @@ import java.util.List;
 @RequestMapping(value = "/api/pet", produces = "application/json")
 public class PetController {
 
-    @Autowired
-    private PetService petService;
+	@Autowired
+	private PetService petService;
 
-    /**
-     * Get the {@link List} of {@link Pet}s.<br />
-     * URL: GET <code>/pet</code>
-     *
-     * @return the {@link List} of {@link Pet}s.
-     */
-    @RequestMapping(method = RequestMethod.GET)
-    @ResponseBody
-    public List<Pet> list() {
-        return this.petService.get();
-    }
+	/**
+	 * Get the {@link List} of {@link Pet}s.<br />
+	 * URL: GET <code>/pet</code>
+	 *
+	 * @return the {@link List} of {@link Pet}s.
+	 */
+	@RequestMapping(method = RequestMethod.GET)
+	@ResponseBody
+	public List<Pet> list() {
+		return this.petService.get();
+	}
 
-    /**
-     * Get a {@link Pet} by its id.<br />
-     * URL: GET <code>/pet/id</code>
-     *
-     * @return the {@link Pet}.
-     */
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    @ResponseBody
-    public Pet get(@PathVariable long id) {
-        return this.petService.get(id);
-    }
+	/**
+	 * Get a {@link Pet} by its id.<br />
+	 * URL: GET <code>/pet/id</code>
+	 *
+	 * @return the {@link Pet}.
+	 */
+	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
+	@ResponseBody
+	public Pet get(@PathVariable long id) {
+		Pet pet = this.petService.get(id);
+		if (pet == null) {
+			throw new NoSuchDataException("Pet not found");
+		}
+		return pet;
+	}
 }

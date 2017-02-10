@@ -4,9 +4,7 @@ import com.colinma.model.Pet;
 import org.springframework.data.repository.CrudRepository;
 
 /**
- * Created by colinma on 10/02/2017.
+ * {@link CrudRepository} of {@link Pet}s.
  */
 public interface PetRepository extends CrudRepository<Pet, Long> {
-
-    Pet findById(final long id);
 }

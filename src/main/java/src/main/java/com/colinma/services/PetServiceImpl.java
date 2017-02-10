@@ -7,44 +7,39 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
-/**
- * Created by colinma on 10/02/2017.
- */
 @Service
 @Transactional
 public class PetServiceImpl implements PetService {
 
-    @Autowired
-    private PetRepository petRepository;
+	@Autowired
+	private PetRepository petRepository;
 
-    @Override
-    @Transactional(readOnly = true)
-    public List<Pet> get() {
-        return IteratorUtils.toList(this.petRepository.findAll().iterator());
-    }
+	@Override
+	@Transactional(readOnly = true)
+	public List<Pet> get() {
+		return IteratorUtils.toList(this.petRepository.findAll().iterator());
+	}
 
-    @Override
-    @Transactional(readOnly = true)
-    public Pet get(long id) {
-        return this.petRepository.findById(id);
-    }
+	@Override
+	@Transactional(readOnly = true)
+	public Pet get(long id) {
+		return this.petRepository.findOne(id);
+	}
 
-    @Override
-    public Pet add(Pet pet) {
-        return this.petRepository.save(pet);
-    }
+	@Override
+	public Pet add(Pet pet) {
+		return this.petRepository.save(pet);
+	}
 
-    @Override
-    public Pet update(Pet pet) {
-        return this.petRepository.save(pet);
-    }
+	@Override
+	public Pet update(Pet pet) {
+		return this.petRepository.save(pet);
+	}
 
-    @Override
-    public void delete(long id) {
-        this.petRepository.delete(id);
-    }
+	@Override
+	public void delete(long id) {
+		this.petRepository.delete(id);
+	}
 }
