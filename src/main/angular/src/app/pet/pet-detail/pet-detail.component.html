@@ -1,26 +1,36 @@
 <div class="pet-detail">
-  <div class="row">
-    <div class="col-md-6">
-      Number
-    </div>
-    <div class="col-md-6">
-      {{(pet | async).id}}
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-6">
-      Name
-    </div>
-    <div class="col-md-6">
-      {{(pet | async).name}}
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-12">
-      <div class="button-group">
-        <button class="btn btn-primary">Edit</button>
-        <button class="btn btn-danger">Delete</button>
-      </div>
+  <div class="card"
+       *ngIf="pet| async">
+    <div class="card-block">
+      <h4 class="card-title">{{(pet| async)?.name}}</h4>
+      <h6 class="card-subtitle mb-2">
+        <div class="badge badge-pill badge-default"
+             *ngIf="(pet| async)?.new">
+          New
+        </div>
+        <div class="badge badge-pill badge-info"
+             *ngIf="(pet| async)?.highlighted">
+          Important
+        </div>
+      </h6>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+          <div class="age">
+            <span>Age: </span>
+            <span>{{(pet| async)?.age}}</span>
+          </div>
+        </li>
+        <li class="list-group-item button-group">
+          <a class="btn btn-primary mr-2"
+             [routerLink]="['edit']">
+            Edit
+          </a>
+          <button class="btn btn-outline-danger"
+                  (click)="delete(pet)">
+            Delete
+          </button>
+        </li>
+      </ul>
     </div>
   </div>
 </div>
