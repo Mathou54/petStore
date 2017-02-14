@@ -26,4 +26,13 @@ export class PetService {
       .catch(this.httpErrorsService.handleError())
       .map((response: Response) => response.json() as Pet);
   }
+  update(pet: Pet): Observable<Pet> {
+    return this.http.put(`${URL}`, pet)
+      .catch(this.httpErrorsService.handleError())
+      .map((response: Response) => response.json() as Pet);
+  }
+  remove(id: number): Observable<Pet> {
+    return this.http.delete(`${URL}/${id}`)
+      .catch(this.httpErrorsService.handleError())
+  }
 }

@@ -1,6 +1,6 @@
 import {BrowserModule} from "@angular/platform-browser";
 import {NgModule} from "@angular/core";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpModule} from "@angular/http";
 import {RouterModule} from "@angular/router";
 import {routes} from "./app.route";
@@ -12,6 +12,7 @@ import {PetService} from "./services/pet/pet.service";
 import {AlertsComponent} from "./components/alerts/alerts.component";
 import {HttpErrorsService} from "./services/http-errors/http-errors.service";
 import {AlertsService} from "./components/alerts/alerts.service";
+import {PetEditComponent} from "./pet-edit/pet-edit.component";
 
 @NgModule({
   declarations: [
@@ -19,11 +20,13 @@ import {AlertsService} from "./components/alerts/alerts.service";
     ListComponent,
     PetComponent,
     PetDetailComponent,
-    AlertsComponent
+    AlertsComponent,
+    PetEditComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
     RouterModule.forRoot(routes)
   ],

@@ -1,0 +1,52 @@
+<form class="pet-edit" [formGroup]="pet">
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" id="name" formControlName="name"/>
+  </div>
+  <div class="form-group">
+    <label for="new">Is the pet new?</label>
+    <input type="checkbox" id="new" formControlName="new" [checked]="pet.get('new').value"/>
+  </div>
+  <div class="form-group">
+    <label>Name</label>
+    <div class="row">
+      <label>
+        <input type="radio" id="type-dog" formControlName="type" value="dog"
+               [checked]="pet.get('type').value === 'dog'"/>
+        <span>Dog</span>
+      </label>
+      <label>
+        <input type="radio" id="type-cat" formControlName="type" value="cat"
+               [checked]="pet.get('type').value === 'cat'"/>
+        <span>Cat</span>
+      </label>
+      <label>
+        <input type="radio" id="type-fish" formControlName="type" value="fish"
+               [checked]="pet.get('type').value === 'fish'"/>
+        <span>Fish</span>
+      </label>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="highlighted">Is the pet important?</label>
+    <input type="checkbox" id="highlighted" formControlName="highlighted" [checked]="pet.get('highlighted').value"/>
+  </div>
+  <div class="form-group">
+    <label for="age">Age</label>
+    <input type="number" id="age" formControlName="age"/>
+  </div>
+  <div class="button-group">
+    <button class="btn btn-primary mr-2"
+            (click)="edit()">
+      Edit
+    </button>
+    <a class="btn btn-secondary mr-4"
+       [routerLink]="['..']">
+      Cancel
+    </a>
+    <button class="btn btn-outline-danger"
+            (click)="remove()">
+      Delete
+    </button>
+  </div>
+</form>

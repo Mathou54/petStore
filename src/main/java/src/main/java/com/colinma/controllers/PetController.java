@@ -5,10 +5,7 @@ import com.colinma.model.Pet;
 import com.colinma.services.PetService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -48,5 +45,27 @@ public class PetController {
 			throw new NoSuchDataException("Pet not found");
 		}
 		return pet;
+	}
+
+	/**
+	 * Update a {@link Pet}.<br />
+	 * URL: PUT <code>/pet</code>
+	 *
+	 * @return the {@link Pet}.
+	 */
+	@RequestMapping(method = RequestMethod.PUT)
+	@ResponseBody
+	public Pet update(@RequestBody Pet pet) {
+		return this.petService.update(pet);
+	}
+
+	/**
+	 * Delete a {@link Pet}.<br />
+	 * URL: DELETE <code>/pet/id</code>
+	 */
+	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+	@ResponseBody
+	public void remove(@PathVariable long id) {
+		this.petService.delete(id);
 	}
 }
