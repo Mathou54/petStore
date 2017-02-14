@@ -1,15 +1,19 @@
 <div class="container">
   <header class="header ">
     <div class="title row justify-content-center">
-      Pet Store
+      <h1>Pet Store</h1>
     </div>
     <nav class="navbar">
       <ul class="nav nav-pills">
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/pet']">List of pets</a>
+          <a class="nav-link"
+             [class.active]="isActive('/pet')"
+             [routerLink]="['/pet']">List of pets</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/pet/create']">Create a pets</a>
+          <a class="nav-link"
+             [class.active]="isActive('/pet/create')"
+             [routerLink]="['/pet/create']">Create a pets</a>
         </li>
       </ul>
     </nav>

@@ -140,7 +140,7 @@ var AlertsService = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__(224);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__(117);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common__ = __webpack_require__(82);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common__ = __webpack_require__(69);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_pet_pet_service__ = __webpack_require__(120);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PetCreateComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -201,7 +201,7 @@ var PetCreateComponent = (function () {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__(224);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common__ = __webpack_require__(82);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common__ = __webpack_require__(69);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__(117);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_pet_pet_service__ = __webpack_require__(120);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_route__ = __webpack_require__(245);
@@ -464,6 +464,7 @@ __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dyna
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__(69);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -475,18 +476,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var AppComponent = (function () {
-    function AppComponent() {
+    function AppComponent(location) {
+        this.location = location;
     }
+    AppComponent.prototype.isActive = function (url) {
+        return this.location.path().endsWith(url);
+    };
     AppComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_4" /* Component */])({
             selector: 'app-root',
             template: __webpack_require__(720),
             styles: [__webpack_require__(713)]
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_common__["c" /* Location */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_common__["c" /* Location */]) === 'function' && _a) || Object])
     ], AppComponent);
     return AppComponent;
+    var _a;
 }());
 //# sourceMappingURL=E:/Workspaces/AngularTest/RBC/petStore/src/main/angular/src/app.component.js.map
 
@@ -744,7 +751,7 @@ module.exports = ""
 /***/ 720:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <header class=\"header \">\n    <div class=\"title row justify-content-center\">\n      Pet Store\n    </div>\n    <nav class=\"navbar\">\n      <ul class=\"nav nav-pills\">\n        <li class=\"nav-item\">\n          <a class=\"nav-link\" [routerLink]=\"['/pet']\">List of pets</a>\n        </li>\n        <li class=\"nav-item\">\n          <a class=\"nav-link\" [routerLink]=\"['/pet/create']\">Create a pets</a>\n        </li>\n      </ul>\n    </nav>\n  </header>\n  <section>\n    <app-alerts></app-alerts>\n    <router-outlet></router-outlet>\n  </section>\n  <footer></footer>\n\n</div>\n"
+module.exports = "<div class=\"container\">\n  <header class=\"header \">\n    <div class=\"title row justify-content-center\">\n      <h1>Pet Store</h1>\n    </div>\n    <nav class=\"navbar\">\n      <ul class=\"nav nav-pills\">\n        <li class=\"nav-item\">\n          <a class=\"nav-link\"\n             [class.active]=\"isActive('/pet')\"\n             [routerLink]=\"['/pet']\">List of pets</a>\n        </li>\n        <li class=\"nav-item\">\n          <a class=\"nav-link\"\n             [class.active]=\"isActive('/pet/create')\"\n             [routerLink]=\"['/pet/create']\">Create a pets</a>\n        </li>\n      </ul>\n    </nav>\n  </header>\n  <section>\n    <app-alerts></app-alerts>\n    <router-outlet></router-outlet>\n  </section>\n  <footer></footer>\n\n</div>\n"
 
 /***/ }),
 
