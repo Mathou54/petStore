@@ -48,6 +48,18 @@ public class PetController {
 	}
 
 	/**
+	 * Create a {@link Pet}.<br />
+	 * URL: PUT <code>/pet</code>
+	 *
+	 * @return the {@link Pet}.
+	 */
+	@RequestMapping(method = RequestMethod.POST)
+	@ResponseBody
+	public Pet create(@RequestBody Pet pet) {
+		return this.petService.add(pet);
+	}
+
+	/**
 	 * Update a {@link Pet}.<br />
 	 * URL: PUT <code>/pet</code>
 	 *

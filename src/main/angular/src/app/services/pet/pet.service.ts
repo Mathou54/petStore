@@ -26,6 +26,11 @@ export class PetService {
       .catch(this.httpErrorsService.handleError())
       .map((response: Response) => response.json() as Pet);
   }
+  create(pet: Pet): Observable<Pet> {
+    return this.http.post(`${URL}`, pet)
+      .catch(this.httpErrorsService.handleError())
+      .map((response: Response) => response.json() as Pet);
+  }
   update(pet: Pet): Observable<Pet> {
     return this.http.put(`${URL}`, pet)
       .catch(this.httpErrorsService.handleError())

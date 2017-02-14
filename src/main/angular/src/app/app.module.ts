@@ -13,6 +13,7 @@ import {AlertsComponent} from "./components/alerts/alerts.component";
 import {HttpErrorsService} from "./services/http-errors/http-errors.service";
 import {AlertsService} from "./components/alerts/alerts.service";
 import {PetEditComponent} from "./pet-edit/pet-edit.component";
+import {PetCreateComponent} from "./pet-create/pet-create.component";
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import {PetEditComponent} from "./pet-edit/pet-edit.component";
     PetComponent,
     PetDetailComponent,
     AlertsComponent,
-    PetEditComponent
+    PetEditComponent,
+    PetCreateComponent
   ],
   imports: [
     BrowserModule,
