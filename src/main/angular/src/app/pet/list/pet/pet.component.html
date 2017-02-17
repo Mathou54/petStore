@@ -23,7 +23,9 @@
         </li>
         <li class="list-group-item">
           <div class="type">
-            <img src="/assets/{{pet.type}}.gif" />
+            <a [routerLink]="[pet.id]">
+              <img src="/assets/{{pet.type}}.gif"/>
+            </a>
           </div>
         </li>
         <li class="list-group-item">
