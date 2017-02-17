@@ -157,6 +157,26 @@ var ListComponent = (function () {
     }
     ListComponent.prototype.ngOnInit = function () {
         this.pets = this.petService.list();
+        this.filterTypes = [];
+        this.filterTypes['cat'] = true;
+        this.filterTypes['dog'] = true;
+        this.filterTypes['fish'] = true;
+    };
+    ListComponent.prototype.filterPets = function (type) {
+        this.filterTypes[type] = !this.filterTypes[type];
+    };
+    ListComponent.prototype.filteredPets = function (pets) {
+        var _this = this;
+        if (!pets) {
+            return pets;
+        }
+        return pets.filter(function (pet) { return _this.showPet(pet); });
+    };
+    ListComponent.prototype.showPet = function (pet) {
+        return this.isFilterSelected(pet.type);
+    };
+    ListComponent.prototype.isFilterSelected = function (type) {
+        return this.filterTypes[type];
     };
     ListComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_4" /* Component */])({
@@ -716,7 +736,7 @@ module.exports = ""
 /***/ 715:
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = ".filter img {\r\n  height: 4em;\r\n}\r\n\r\n.filtered {\r\n  opacity: .5;\r\n}\r\n"
 
 /***/ }),
 
@@ -765,14 +785,14 @@ module.exports = "<div class=\"alerts\">\n  <div *ngFor=\"let alert of alerts; l
 /***/ 722:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"pet-list\">\n  <div class=\"pet-list-item\">\n    <div class=\"row\">\n      <div class=\"col-md-3 pt-3 pb-3\"\n           *ngFor=\"let pet of pets | async; let index = index\">\n        <app-pet [pet]=\"pet\"></app-pet>\n      </div>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<div class=\"pet-list\">\n  <div class=\"row justify-content-center filter\">\n    <div class=\"col-md-1\"\n         (click)=\"filterPets('cat')\"\n         [class.filtered]=\"!isFilterSelected('cat')\">\n      <img src=\"/assets/cat.gif\">\n    </div>\n    <div class=\"col-md-1\"\n         (click)=\"filterPets('dog')\"\n         [class.filtered]=\"!isFilterSelected('dog')\">\n      <img src=\"/assets/dog.gif\">\n    </div>\n    <div class=\"col-md-1\"\n         (click)=\"filterPets('fish')\"\n         [class.filtered]=\"!isFilterSelected('fish')\">\n      <img src=\"/assets/fish.gif\">\n    </div>\n  </div>\n  <div class=\"row\">\n    <div *ngFor=\"let pet of filteredPets(pets | async)\" class=\"col-md-3 pt-3 pb-3\">\n      <app-pet [pet]=\"pet\"></app-pet>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
 /***/ 723:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"pet\">\n  <div class=\"card\"\n       *ngIf=\"pet\">\n    <div class=\"card-block\">\n      <h4 class=\"card-title\">{{pet.name}}</h4>\n      <h6 class=\"card-subtitle mb-2\">\n        <div class=\"badge badge-pill badge-success\"\n             *ngIf=\"pet.new\">\n          New\n        </div>\n        <div class=\"badge badge-pill badge-info\"\n             *ngIf=\"pet.highlighted\">\n          Important\n        </div>\n        &nbsp;\n      </h6>\n      <ul class=\"list-group list-group-flush\">\n        <li class=\"list-group-item\">\n          <div class=\"age\">\n            <span>Age: </span>\n            <span>{{pet.age}}</span>\n          </div>\n        </li>\n        <li class=\"list-group-item\">\n          <div class=\"type\">\n            <img src=\"/assets/{{pet.type}}.gif\" />\n          </div>\n        </li>\n        <li class=\"list-group-item\">\n          <a class=\"btn btn-primary\"\n             [routerLink]=\"[pet.id]\">\n            Detail\n          </a>\n        </li>\n      </ul>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<div class=\"pet\">\n  <div class=\"card\"\n       *ngIf=\"pet\">\n    <div class=\"card-block\">\n      <h4 class=\"card-title\">{{pet.name}}</h4>\n      <h6 class=\"card-subtitle mb-2\">\n        <div class=\"badge badge-pill badge-success\"\n             *ngIf=\"pet.new\">\n          New\n        </div>\n        <div class=\"badge badge-pill badge-info\"\n             *ngIf=\"pet.highlighted\">\n          Important\n        </div>\n        &nbsp;\n      </h6>\n      <ul class=\"list-group list-group-flush\">\n        <li class=\"list-group-item\">\n          <div class=\"age\">\n            <span>Age: </span>\n            <span>{{pet.age}}</span>\n          </div>\n        </li>\n        <li class=\"list-group-item\">\n          <div class=\"type\">\n            <a [routerLink]=\"[pet.id]\">\n              <img src=\"/assets/{{pet.type}}.gif\"/>\n            </a>\n          </div>\n        </li>\n        <li class=\"list-group-item\">\n          <a class=\"btn btn-primary\"\n             [routerLink]=\"[pet.id]\">\n            Detail\n          </a>\n        </li>\n      </ul>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 

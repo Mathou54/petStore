@@ -1,0 +1,7 @@
+.filter img {
+  height: 4em;
+}
+
+.filtered {
+  opacity: .5;
+}
