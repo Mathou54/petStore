@@ -1,9 +1,7 @@
 /* tslint:disable:no-unused-variable */
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
-
-import { PetComponent } from './pet.component';
+import {async, ComponentFixture, TestBed} from "@angular/core/testing";
+import {PetComponent} from "./pet.component";
+import {RouterTestingModule} from "@angular/router/testing";
 
 describe('PetComponent', () => {
   let component: PetComponent;
@@ -11,9 +9,10 @@ describe('PetComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PetComponent ]
+      imports: [RouterTestingModule],
+      declarations: [PetComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

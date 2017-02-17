@@ -1,19 +1,25 @@
 /* tslint:disable:no-unused-variable */
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
-
-import { AlertsComponent } from './alerts.component';
+import {async, ComponentFixture, TestBed} from "@angular/core/testing";
+import {AlertsComponent} from "./alerts.component";
+import {AlertsService} from "./alerts.service";
 
 describe('AlertsComponent', () => {
   let component: AlertsComponent;
   let fixture: ComponentFixture<AlertsComponent>;
 
   beforeEach(async(() => {
+
+    let mockAlertsService = {
+      getAlerts: function(){}
+    };
+
+    spyOn(mockAlertsService, 'getAlerts');
+
     TestBed.configureTestingModule({
-      declarations: [ AlertsComponent ]
+      declarations: [AlertsComponent],
+      providers: [{provide: AlertsService, useValue: mockAlertsService}]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

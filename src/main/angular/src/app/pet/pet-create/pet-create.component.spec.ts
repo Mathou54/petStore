@@ -1,19 +1,24 @@
 /* tslint:disable:no-unused-variable */
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
-
-import { PetCreateComponent } from './pet-create.component';
+import {async, ComponentFixture, TestBed} from "@angular/core/testing";
+import {PetCreateComponent} from "./pet-create.component";
+import {ReactiveFormsModule} from "@angular/forms";
+import {RouterTestingModule} from "@angular/router/testing";
+import {PetService} from "../../services/pet/pet.service";
 
 describe('PetCreateComponent', () => {
   let component: PetCreateComponent;
   let fixture: ComponentFixture<PetCreateComponent>;
 
   beforeEach(async(() => {
+
+    let mockPetService = {};
+
     TestBed.configureTestingModule({
-      declarations: [ PetCreateComponent ]
+      imports: [ReactiveFormsModule, RouterTestingModule],
+      declarations: [PetCreateComponent],
+      providers: [{provide: PetService, useValue: mockPetService}]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

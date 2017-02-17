@@ -1,19 +1,27 @@
 /* tslint:disable:no-unused-variable */
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
-
-import { ListComponent } from './list.component';
+import {async, ComponentFixture, TestBed} from "@angular/core/testing";
+import {CUSTOM_ELEMENTS_SCHEMA} from "@angular/core";
+import {ListComponent} from "./list.component";
+import {PetService} from "../../services/pet/pet.service";
 
 describe('ListComponent', () => {
   let component: ListComponent;
   let fixture: ComponentFixture<ListComponent>;
 
   beforeEach(async(() => {
+
+    let mockPetService = {
+      list: function(){}
+    };
+
+    spyOn(mockPetService, 'list');
+
     TestBed.configureTestingModule({
-      declarations: [ ListComponent ]
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
+      declarations: [ListComponent],
+      providers: [{provide: PetService, useValue: mockPetService}]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

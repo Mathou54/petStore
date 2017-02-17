@@ -1,16 +1,21 @@
 /* tslint:disable:no-unused-variable */
 
-import { TestBed, async, inject } from '@angular/core/testing';
-import { HttpErrorsService } from './http-errors.service';
+import {TestBed, inject} from "@angular/core/testing";
+import {HttpErrorsService} from "./http-errors.service";
+import {AlertsService} from "../../components/alerts/alerts.service";
 
 describe('HttpErrorsService', () => {
+
+  let mockAlertsService = {};
+
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [HttpErrorsService]
+      providers: [HttpErrorsService,
+        {provide: AlertsService, useValue: mockAlertsService}]
     });
   });
 
-  it('should ...', inject([HttpErrorsService], (service: HttpErrorsService) => {
+  it('should create', inject([HttpErrorsService], (service: HttpErrorsService) => {
     expect(service).toBeTruthy();
   }));
 });

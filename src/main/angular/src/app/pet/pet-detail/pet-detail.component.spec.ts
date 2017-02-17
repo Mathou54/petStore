@@ -1,19 +1,28 @@
 /* tslint:disable:no-unused-variable */
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
-
-import { PetDetailComponent } from './pet-detail.component';
+import {async, ComponentFixture, TestBed} from "@angular/core/testing";
+import {PetDetailComponent} from "./pet-detail.component";
+import {RouterTestingModule} from "@angular/router/testing";
+import {PetService} from "../../services/pet/pet.service";
 
 describe('PetDetailComponent', () => {
   let component: PetDetailComponent;
   let fixture: ComponentFixture<PetDetailComponent>;
 
   beforeEach(async(() => {
+
+    let mockPetService = {
+      get: function () {
+      }
+    };
+
+    spyOn(mockPetService, 'get');
+
     TestBed.configureTestingModule({
-      declarations: [ PetDetailComponent ]
+      imports: [RouterTestingModule],
+      declarations: [PetDetailComponent],
+      providers: [{provide: PetService, useValue: mockPetService}]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

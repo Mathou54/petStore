@@ -6,6 +6,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +19,7 @@ public class PetServiceTest extends PetstoreApplicationTests {
 	private static final Pet.PetType PET_TYPE = Pet.PetType.fish;
 	private static final boolean PET_HIGHLIGHTED = false;
 	private static final long PET_AGE = 42;
+	private static final int FAIL_ID = 12000;
 
 	@Autowired
 	private PetService petService;
@@ -59,6 +61,13 @@ public class PetServiceTest extends PetstoreApplicationTests {
 	}
 
 	@Test
+	public void test_getOne_fail() {
+		Pet get = this.petService.get(FAIL_ID);
+
+		Assert.assertNull(get);
+	}
+
+	@Test
 	public void test_add() {
 		Pet expected = new Pet(PET_NAME, PET_NEW, PET_TYPE, PET_HIGHLIGHTED, PET_AGE);
 		Pet actual = this.petService.add(expected);
@@ -82,6 +91,13 @@ public class PetServiceTest extends PetstoreApplicationTests {
 
 		Assert.assertEquals(this.pets.size() - 1, this.petService.get().size());
 		Assert.assertFalse(this.petService.get().contains(deleted));
+	}
+
+	@Test(expected = EmptyResultDataAccessException.class)
+	public void test_delete_fail() {
+		this.petService.delete(FAIL_ID);
+
+		Assert.assertEquals(this.pets.size(), this.petService.get().size());
 	}
 
 }
