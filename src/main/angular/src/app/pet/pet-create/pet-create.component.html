@@ -6,21 +6,23 @@
   <div class="form-group">
     <label>Pet type:</label>
     <div class="row">
-      <label>
-        <input type="radio" id="type-dog" formControlName="type" value="dog"
-               [checked]="pet.get('type').value === 'dog'"/>
-        <span>Dog</span>
-      </label>
-      <label>
-        <input type="radio" id="type-cat" formControlName="type" value="cat"
-               [checked]="pet.get('type').value === 'cat'"/>
-        <span>Cat</span>
-      </label>
-      <label>
-        <input type="radio" id="type-fish" formControlName="type" value="fish"
-               [checked]="pet.get('type').value === 'fish'"/>
-        <span>Fish</span>
-      </label>
+      <div class="col-md-12">
+        <label class="mr-3">
+          <input type="radio" id="type-dog" formControlName="type" value="dog"
+                 [checked]="pet.get('type').value === 'dog'"/>
+          <span>Dog</span>
+        </label>
+        <label class="mr-3">
+          <input type="radio" id="type-cat" formControlName="type" value="cat"
+                 [checked]="pet.get('type').value === 'cat'"/>
+          <span>Cat</span>
+        </label>
+        <label>
+          <input type="radio" id="type-fish" formControlName="type" value="fish"
+                 [checked]="pet.get('type').value === 'fish'"/>
+          <span>Fish</span>
+        </label>
+      </div>
     </div>
   </div>
   <div class="form-group">

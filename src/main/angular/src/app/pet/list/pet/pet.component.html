@@ -4,7 +4,7 @@
     <div class="card-block">
       <h4 class="card-title">{{pet.name}}</h4>
       <h6 class="card-subtitle mb-2">
-        <div class="badge badge-pill badge-default"
+        <div class="badge badge-pill badge-success"
              *ngIf="pet.new">
           New
         </div>
@@ -12,6 +12,7 @@
              *ngIf="pet.highlighted">
           Important
         </div>
+        &nbsp;
       </h6>
       <ul class="list-group list-group-flush">
         <li class="list-group-item">

@@ -12,6 +12,7 @@
              *ngIf="(pet| async)?.highlighted">
           Important
         </div>
+        &nbsp;
       </h6>
       <ul class="list-group list-group-flush">
         <li class="list-group-item">
@@ -21,7 +22,8 @@
           </div>
         </li>
         <li class="list-group-item">
-          <div class="type">
+          <div class="type"
+            *ngIf="pet | async">
             <img src="/assets/{{(pet| async)?.type}}.gif" />
           </div>
         </li>
