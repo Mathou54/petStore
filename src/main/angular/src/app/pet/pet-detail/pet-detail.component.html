@@ -20,6 +20,11 @@
             <span>{{(pet| async)?.age}}</span>
           </div>
         </li>
+        <li class="list-group-item">
+          <div class="type">
+            <img src="/assets/{{(pet| async)?.type}}.gif" />
+          </div>
+        </li>
         <li class="list-group-item button-group">
           <a class="btn btn-primary mr-2"
              [routerLink]="['edit']">
