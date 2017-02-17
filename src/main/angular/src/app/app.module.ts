@@ -12,8 +12,8 @@ import {PetService} from "./services/pet/pet.service";
 import {AlertsComponent} from "./components/alerts/alerts.component";
 import {HttpErrorsService} from "./services/http-errors/http-errors.service";
 import {AlertsService} from "./components/alerts/alerts.service";
-import {PetEditComponent} from "./pet-edit/pet-edit.component";
-import {PetCreateComponent} from "./pet-create/pet-create.component";
+import {PetEditComponent} from "./pet/pet-edit/pet-edit.component";
+import {PetCreateComponent} from "./pet/pet-create/pet-create.component";
 
 @NgModule({
   declarations: [

@@ -68,10 +68,10 @@ var PetService = (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__pet_list_list_component__ = __webpack_require__(366);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__pet_pet_detail_pet_detail_component__ = __webpack_require__(367);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pet_edit_pet_edit_component__ = __webpack_require__(365);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pet_create_pet_create_component__ = __webpack_require__(364);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__pet_list_list_component__ = __webpack_require__(364);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__pet_pet_detail_pet_detail_component__ = __webpack_require__(366);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pet_pet_create_pet_create_component__ = __webpack_require__(365);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pet_pet_edit_pet_edit_component__ = __webpack_require__(367);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return URL_PARAMS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return routes; });
 
@@ -84,9 +84,9 @@ var URL_PARAMS = {
 var routes = [
     { path: '', redirectTo: 'pet', pathMatch: 'full' },
     { path: 'pet', component: __WEBPACK_IMPORTED_MODULE_0__pet_list_list_component__["a" /* ListComponent */] },
-    { path: 'pet/create', component: __WEBPACK_IMPORTED_MODULE_3__pet_create_pet_create_component__["a" /* PetCreateComponent */] },
+    { path: 'pet/create', component: __WEBPACK_IMPORTED_MODULE_2__pet_pet_create_pet_create_component__["a" /* PetCreateComponent */] },
     { path: 'pet/:' + URL_PARAMS.petId, component: __WEBPACK_IMPORTED_MODULE_1__pet_pet_detail_pet_detail_component__["a" /* PetDetailComponent */] },
-    { path: 'pet/:' + URL_PARAMS.petId + '/edit', component: __WEBPACK_IMPORTED_MODULE_2__pet_edit_pet_edit_component__["a" /* PetEditComponent */] }
+    { path: 'pet/:' + URL_PARAMS.petId + '/edit', component: __WEBPACK_IMPORTED_MODULE_3__pet_pet_edit_pet_edit_component__["a" /* PetEditComponent */] }
 ];
 //# sourceMappingURL=E:/Workspaces/AngularTest/RBC/petStore/src/main/angular/src/app.route.js.map
 
@@ -138,6 +138,46 @@ var AlertsService = (function () {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_pet_pet_service__ = __webpack_require__(120);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ListComponent; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var ListComponent = (function () {
+    function ListComponent(petService) {
+        this.petService = petService;
+    }
+    ListComponent.prototype.ngOnInit = function () {
+        this.pets = this.petService.list();
+    };
+    ListComponent = __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_4" /* Component */])({
+            selector: 'app-list',
+            template: __webpack_require__(722),
+            styles: [__webpack_require__(715)]
+        }), 
+        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_pet_pet_service__["a" /* PetService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__services_pet_pet_service__["a" /* PetService */]) === 'function' && _a) || Object])
+    ], ListComponent);
+    return ListComponent;
+    var _a;
+}());
+//# sourceMappingURL=E:/Workspaces/AngularTest/RBC/petStore/src/main/angular/src/list.component.js.map
+
+/***/ }),
+
+/***/ 365:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__(224);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__(117);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common__ = __webpack_require__(69);
@@ -183,8 +223,8 @@ var PetCreateComponent = (function () {
     PetCreateComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_4" /* Component */])({
             selector: 'app-pet-create',
-            template: __webpack_require__(722),
-            styles: [__webpack_require__(715)]
+            template: __webpack_require__(724),
+            styles: [__webpack_require__(717)]
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_forms__["d" /* FormBuilder */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_forms__["d" /* FormBuilder */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_common__["c" /* Location */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3__angular_common__["c" /* Location */]) === 'function' && _c) || Object, (typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__services_pet_pet_service__["a" /* PetService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_4__services_pet_pet_service__["a" /* PetService */]) === 'function' && _d) || Object])
     ], PetCreateComponent);
@@ -195,133 +235,7 @@ var PetCreateComponent = (function () {
 
 /***/ }),
 
-/***/ 365:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__(224);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common__ = __webpack_require__(69);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__(117);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_pet_pet_service__ = __webpack_require__(120);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_route__ = __webpack_require__(245);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PetEditComponent; });
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-
-var PetEditComponent = (function () {
-    function PetEditComponent(formBuilder, router, location, route, petService) {
-        this.formBuilder = formBuilder;
-        this.router = router;
-        this.location = location;
-        this.route = route;
-        this.petService = petService;
-    }
-    PetEditComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.pet = this.formBuilder.group({
-            'name': ['', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["c" /* Validators */].required]],
-            'new': [],
-            'type': [],
-            'highlighted': [],
-            'age': []
-        });
-        if (this.route.snapshot.params[__WEBPACK_IMPORTED_MODULE_5__app_route__["b" /* URL_PARAMS */].petId]) {
-            this.petService.get(this.route.snapshot.params[__WEBPACK_IMPORTED_MODULE_5__app_route__["b" /* URL_PARAMS */].petId])
-                .subscribe(function (pet) {
-                _this.pet = _this.formBuilder.group({
-                    'id': [pet.id, [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["c" /* Validators */].required]],
-                    'name': [pet.name, [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["c" /* Validators */].required]],
-                    'new': [pet.new],
-                    'type': [pet.type],
-                    'highlighted': [pet.highlighted],
-                    'age': [pet.age]
-                });
-            });
-        }
-    };
-    PetEditComponent.prototype.edit = function () {
-        var _this = this;
-        this.petService.update(this.pet.value)
-            .subscribe(function () {
-            _this.location.back();
-        });
-    };
-    PetEditComponent.prototype.remove = function () {
-        var _this = this;
-        this.petService.remove(this.pet.value.id)
-            .subscribe(function () {
-            _this.router.navigate(['/']);
-        });
-    };
-    PetEditComponent = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_4" /* Component */])({
-            selector: 'app-pet-edit',
-            template: __webpack_require__(723),
-            styles: [__webpack_require__(716)]
-        }), 
-        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_forms__["d" /* FormBuilder */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_forms__["d" /* FormBuilder */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__angular_common__["c" /* Location */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__angular_common__["c" /* Location */]) === 'function' && _c) || Object, (typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["c" /* ActivatedRoute */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3__angular_router__["c" /* ActivatedRoute */]) === 'function' && _d) || Object, (typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4__services_pet_pet_service__["a" /* PetService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_4__services_pet_pet_service__["a" /* PetService */]) === 'function' && _e) || Object])
-    ], PetEditComponent);
-    return PetEditComponent;
-    var _a, _b, _c, _d, _e;
-}());
-//# sourceMappingURL=E:/Workspaces/AngularTest/RBC/petStore/src/main/angular/src/pet-edit.component.js.map
-
-/***/ }),
-
 /***/ 366:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_pet_pet_service__ = __webpack_require__(120);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ListComponent; });
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-var ListComponent = (function () {
-    function ListComponent(petService) {
-        this.petService = petService;
-    }
-    ListComponent.prototype.ngOnInit = function () {
-        this.pets = this.petService.list();
-    };
-    ListComponent = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_4" /* Component */])({
-            selector: 'app-list',
-            template: __webpack_require__(724),
-            styles: [__webpack_require__(717)]
-        }), 
-        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_pet_pet_service__["a" /* PetService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__services_pet_pet_service__["a" /* PetService */]) === 'function' && _a) || Object])
-    ], ListComponent);
-    return ListComponent;
-    var _a;
-}());
-//# sourceMappingURL=E:/Workspaces/AngularTest/RBC/petStore/src/main/angular/src/list.component.js.map
-
-/***/ }),
-
-/***/ 367:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -364,8 +278,8 @@ var PetDetailComponent = (function () {
     PetDetailComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_4" /* Component */])({
             selector: 'app-pet-detail',
-            template: __webpack_require__(726),
-            styles: [__webpack_require__(719)]
+            template: __webpack_require__(725),
+            styles: [__webpack_require__(718)]
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__services_pet_pet_service__["a" /* PetService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__services_pet_pet_service__["a" /* PetService */]) === 'function' && _c) || Object])
     ], PetDetailComponent);
@@ -373,6 +287,92 @@ var PetDetailComponent = (function () {
     var _a, _b, _c;
 }());
 //# sourceMappingURL=E:/Workspaces/AngularTest/RBC/petStore/src/main/angular/src/pet-detail.component.js.map
+
+/***/ }),
+
+/***/ 367:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__(224);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common__ = __webpack_require__(69);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__(117);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_route__ = __webpack_require__(245);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services_pet_pet_service__ = __webpack_require__(120);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PetEditComponent; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+var PetEditComponent = (function () {
+    function PetEditComponent(formBuilder, router, location, route, petService) {
+        this.formBuilder = formBuilder;
+        this.router = router;
+        this.location = location;
+        this.route = route;
+        this.petService = petService;
+    }
+    PetEditComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.pet = this.formBuilder.group({
+            'name': ['', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["c" /* Validators */].required]],
+            'new': [],
+            'type': [],
+            'highlighted': [],
+            'age': []
+        });
+        if (this.route.snapshot.params[__WEBPACK_IMPORTED_MODULE_4__app_route__["b" /* URL_PARAMS */].petId]) {
+            this.petService.get(this.route.snapshot.params[__WEBPACK_IMPORTED_MODULE_4__app_route__["b" /* URL_PARAMS */].petId])
+                .subscribe(function (pet) {
+                _this.pet = _this.formBuilder.group({
+                    'id': [pet.id, [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["c" /* Validators */].required]],
+                    'name': [pet.name, [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["c" /* Validators */].required]],
+                    'new': [pet.new],
+                    'type': [pet.type],
+                    'highlighted': [pet.highlighted],
+                    'age': [pet.age]
+                });
+            });
+        }
+    };
+    PetEditComponent.prototype.edit = function () {
+        var _this = this;
+        this.petService.update(this.pet.value)
+            .subscribe(function () {
+            _this.location.back();
+        });
+    };
+    PetEditComponent.prototype.remove = function () {
+        var _this = this;
+        this.petService.remove(this.pet.value.id)
+            .subscribe(function () {
+            _this.router.navigate(['/']);
+        });
+    };
+    PetEditComponent = __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_4" /* Component */])({
+            selector: 'app-pet-edit',
+            template: __webpack_require__(726),
+            styles: [__webpack_require__(719)]
+        }), 
+        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_forms__["d" /* FormBuilder */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_forms__["d" /* FormBuilder */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__angular_common__["c" /* Location */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__angular_common__["c" /* Location */]) === 'function' && _c) || Object, (typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["c" /* ActivatedRoute */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3__angular_router__["c" /* ActivatedRoute */]) === 'function' && _d) || Object, (typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_5__services_pet_pet_service__["a" /* PetService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_5__services_pet_pet_service__["a" /* PetService */]) === 'function' && _e) || Object])
+    ], PetEditComponent);
+    return PetEditComponent;
+    var _a, _b, _c, _d, _e;
+}());
+//# sourceMappingURL=E:/Workspaces/AngularTest/RBC/petStore/src/main/angular/src/pet-edit.component.js.map
 
 /***/ }),
 
@@ -510,15 +510,15 @@ var AppComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__(117);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_route__ = __webpack_require__(245);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__app_component__ = __webpack_require__(554);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pet_list_list_component__ = __webpack_require__(366);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pet_list_list_component__ = __webpack_require__(364);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pet_list_pet_pet_component__ = __webpack_require__(558);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pet_pet_detail_pet_detail_component__ = __webpack_require__(367);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pet_pet_detail_pet_detail_component__ = __webpack_require__(366);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__services_pet_pet_service__ = __webpack_require__(120);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_alerts_alerts_component__ = __webpack_require__(556);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__services_http_errors_http_errors_service__ = __webpack_require__(368);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_alerts_alerts_service__ = __webpack_require__(246);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pet_edit_pet_edit_component__ = __webpack_require__(365);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pet_create_pet_create_component__ = __webpack_require__(364);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pet_pet_edit_pet_edit_component__ = __webpack_require__(367);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pet_pet_create_pet_create_component__ = __webpack_require__(365);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -556,8 +556,8 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_8__pet_list_pet_pet_component__["a" /* PetComponent */],
                 __WEBPACK_IMPORTED_MODULE_9__pet_pet_detail_pet_detail_component__["a" /* PetDetailComponent */],
                 __WEBPACK_IMPORTED_MODULE_11__components_alerts_alerts_component__["a" /* AlertsComponent */],
-                __WEBPACK_IMPORTED_MODULE_14__pet_edit_pet_edit_component__["a" /* PetEditComponent */],
-                __WEBPACK_IMPORTED_MODULE_15__pet_create_pet_create_component__["a" /* PetCreateComponent */]
+                __WEBPACK_IMPORTED_MODULE_14__pet_pet_edit_pet_edit_component__["a" /* PetEditComponent */],
+                __WEBPACK_IMPORTED_MODULE_15__pet_pet_create_pet_create_component__["a" /* PetCreateComponent */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
@@ -671,8 +671,8 @@ var PetComponent = (function () {
     PetComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_4" /* Component */])({
             selector: 'app-pet',
-            template: __webpack_require__(725),
-            styles: [__webpack_require__(718)]
+            template: __webpack_require__(723),
+            styles: [__webpack_require__(716)]
         }), 
         __metadata('design:paramtypes', [(typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */]) === 'function' && _b) || Object])
     ], PetComponent);
@@ -765,35 +765,35 @@ module.exports = "<div class=\"alerts\">\n  <div *ngFor=\"let alert of alerts; l
 /***/ 722:
 /***/ (function(module, exports) {
 
-module.exports = "<form class=\"pet-edit\" [formGroup]=\"pet\">\n  <div class=\"form-group\">\n    <label for=\"name\">Name</label>\n    <input type=\"text\" id=\"name\" formControlName=\"name\"/>\n  </div>\n  <div class=\"form-group\">\n    <label>Pet type:</label>\n    <div class=\"row\">\n      <label>\n        <input type=\"radio\" id=\"type-dog\" formControlName=\"type\" value=\"dog\"\n               [checked]=\"pet.get('type').value === 'dog'\"/>\n        <span>Dog</span>\n      </label>\n      <label>\n        <input type=\"radio\" id=\"type-cat\" formControlName=\"type\" value=\"cat\"\n               [checked]=\"pet.get('type').value === 'cat'\"/>\n        <span>Cat</span>\n      </label>\n      <label>\n        <input type=\"radio\" id=\"type-fish\" formControlName=\"type\" value=\"fish\"\n               [checked]=\"pet.get('type').value === 'fish'\"/>\n        <span>Fish</span>\n      </label>\n    </div>\n  </div>\n  <div class=\"form-group\">\n    <label for=\"highlighted\">Is the pet important?</label>\n    <input type=\"checkbox\" id=\"highlighted\" formControlName=\"highlighted\" [checked]=\"pet.get('highlighted').value\"/>\n  </div>\n  <div class=\"form-group\">\n    <label for=\"age\">Age</label>\n    <input type=\"number\" id=\"age\" formControlName=\"age\"/>\n  </div>\n  <div class=\"button-group\">\n    <button class=\"btn btn-primary mr-2\"\n            (click)=\"create()\">\n      Create\n    </button>\n    <a class=\"btn btn-secondary\"\n       [routerLink]=\"['/']\">\n      Cancel\n    </a>\n  </div>\n</form>\n"
+module.exports = "<div class=\"pet-list\">\n  <div class=\"pet-list-item\">\n    <div class=\"row\">\n      <div class=\"col-md-3 pt-3 pb-3\"\n           *ngFor=\"let pet of pets | async; let index = index\">\n        <app-pet [pet]=\"pet\"></app-pet>\n      </div>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
 /***/ 723:
 /***/ (function(module, exports) {
 
-module.exports = "<form class=\"pet-edit\" [formGroup]=\"pet\">\n  <div class=\"form-group\">\n    <label for=\"name\">Name</label>\n    <input type=\"text\" id=\"name\" formControlName=\"name\"/>\n  </div>\n  <div class=\"form-group\">\n    <label for=\"new\">Is the pet new?</label>\n    <input type=\"checkbox\" id=\"new\" formControlName=\"new\" [checked]=\"pet.get('new').value\"/>\n  </div>\n  <div class=\"form-group\">\n    <label>Pet type:</label>\n    <div class=\"row\">\n      <label>\n        <input type=\"radio\" id=\"type-dog\" formControlName=\"type\" value=\"dog\"\n               [checked]=\"pet.get('type').value === 'dog'\"/>\n        <span>Dog</span>\n      </label>\n      <label>\n        <input type=\"radio\" id=\"type-cat\" formControlName=\"type\" value=\"cat\"\n               [checked]=\"pet.get('type').value === 'cat'\"/>\n        <span>Cat</span>\n      </label>\n      <label>\n        <input type=\"radio\" id=\"type-fish\" formControlName=\"type\" value=\"fish\"\n               [checked]=\"pet.get('type').value === 'fish'\"/>\n        <span>Fish</span>\n      </label>\n    </div>\n  </div>\n  <div class=\"form-group\">\n    <label for=\"highlighted\">Is the pet important?</label>\n    <input type=\"checkbox\" id=\"highlighted\" formControlName=\"highlighted\" [checked]=\"pet.get('highlighted').value\"/>\n  </div>\n  <div class=\"form-group\">\n    <label for=\"age\">Age</label>\n    <input type=\"number\" id=\"age\" formControlName=\"age\"/>\n  </div>\n  <div class=\"button-group\">\n    <button class=\"btn btn-primary mr-2\"\n            (click)=\"edit()\">\n      Edit\n    </button>\n    <a class=\"btn btn-secondary mr-4\"\n       [routerLink]=\"['..']\">\n      Cancel\n    </a>\n    <button class=\"btn btn-outline-danger\"\n            (click)=\"remove()\">\n      Delete\n    </button>\n  </div>\n</form>\n"
+module.exports = "<div class=\"pet\">\n  <div class=\"card\"\n       *ngIf=\"pet\">\n    <div class=\"card-block\">\n      <h4 class=\"card-title\">{{pet.name}}</h4>\n      <h6 class=\"card-subtitle mb-2\">\n        <div class=\"badge badge-pill badge-default\"\n             *ngIf=\"pet.new\">\n          New\n        </div>\n        <div class=\"badge badge-pill badge-info\"\n             *ngIf=\"pet.highlighted\">\n          Important\n        </div>\n      </h6>\n      <ul class=\"list-group list-group-flush\">\n        <li class=\"list-group-item\">\n          <div class=\"age\">\n            <span>Age: </span>\n            <span>{{pet.age}}</span>\n          </div>\n        </li>\n        <li class=\"list-group-item\">\n          <a class=\"btn btn-primary\"\n             [routerLink]=\"[pet.id]\">\n            Detail\n          </a>\n        </li>\n      </ul>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
 /***/ 724:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"pet-list\">\n  <div class=\"pet-list-item\">\n    <div class=\"row\">\n      <div class=\"col-md-3 pt-3 pb-3\"\n           *ngFor=\"let pet of pets | async; let index = index\">\n        <app-pet [pet]=\"pet\"></app-pet>\n      </div>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<form class=\"pet-edit\" [formGroup]=\"pet\">\n  <div class=\"form-group\">\n    <label for=\"name\">Name</label>\n    <input type=\"text\" id=\"name\" formControlName=\"name\"/>\n  </div>\n  <div class=\"form-group\">\n    <label>Pet type:</label>\n    <div class=\"row\">\n      <label>\n        <input type=\"radio\" id=\"type-dog\" formControlName=\"type\" value=\"dog\"\n               [checked]=\"pet.get('type').value === 'dog'\"/>\n        <span>Dog</span>\n      </label>\n      <label>\n        <input type=\"radio\" id=\"type-cat\" formControlName=\"type\" value=\"cat\"\n               [checked]=\"pet.get('type').value === 'cat'\"/>\n        <span>Cat</span>\n      </label>\n      <label>\n        <input type=\"radio\" id=\"type-fish\" formControlName=\"type\" value=\"fish\"\n               [checked]=\"pet.get('type').value === 'fish'\"/>\n        <span>Fish</span>\n      </label>\n    </div>\n  </div>\n  <div class=\"form-group\">\n    <label for=\"highlighted\">Is the pet important?</label>\n    <input type=\"checkbox\" id=\"highlighted\" formControlName=\"highlighted\" [checked]=\"pet.get('highlighted').value\"/>\n  </div>\n  <div class=\"form-group\">\n    <label for=\"age\">Age</label>\n    <input type=\"number\" id=\"age\" formControlName=\"age\"/>\n  </div>\n  <div class=\"button-group\">\n    <button class=\"btn btn-primary mr-2\"\n            (click)=\"create()\">\n      Create\n    </button>\n    <a class=\"btn btn-secondary\"\n       [routerLink]=\"['/']\">\n      Cancel\n    </a>\n  </div>\n</form>\n"
 
 /***/ }),
 
 /***/ 725:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"pet\">\n  <div class=\"card\"\n       *ngIf=\"pet\">\n    <div class=\"card-block\">\n      <h4 class=\"card-title\">{{pet.name}}</h4>\n      <h6 class=\"card-subtitle mb-2\">\n        <div class=\"badge badge-pill badge-default\"\n             *ngIf=\"pet.new\">\n          New\n        </div>\n        <div class=\"badge badge-pill badge-info\"\n             *ngIf=\"pet.highlighted\">\n          Important\n        </div>\n      </h6>\n      <ul class=\"list-group list-group-flush\">\n        <li class=\"list-group-item\">\n          <div class=\"age\">\n            <span>Age: </span>\n            <span>{{pet.age}}</span>\n          </div>\n        </li>\n        <li class=\"list-group-item\">\n          <a class=\"btn btn-primary\"\n             [routerLink]=\"[pet.id]\">\n            Detail\n          </a>\n        </li>\n      </ul>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<div class=\"pet-detail\">\n  <div class=\"card\"\n       *ngIf=\"pet| async\">\n    <div class=\"card-block\">\n      <h4 class=\"card-title\">{{(pet| async)?.name}}</h4>\n      <h6 class=\"card-subtitle mb-2\">\n        <div class=\"badge badge-pill badge-default\"\n             *ngIf=\"(pet| async)?.new\">\n          New\n        </div>\n        <div class=\"badge badge-pill badge-info\"\n             *ngIf=\"(pet| async)?.highlighted\">\n          Important\n        </div>\n      </h6>\n      <ul class=\"list-group list-group-flush\">\n        <li class=\"list-group-item\">\n          <div class=\"age\">\n            <span>Age: </span>\n            <span>{{(pet| async)?.age}}</span>\n          </div>\n        </li>\n        <li class=\"list-group-item button-group\">\n          <a class=\"btn btn-primary mr-2\"\n             [routerLink]=\"['edit']\">\n            Edit\n          </a>\n          <button class=\"btn btn-outline-danger\"\n                  (click)=\"remove()\">\n            Delete\n          </button>\n        </li>\n      </ul>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
 /***/ 726:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"pet-detail\">\n  <div class=\"card\"\n       *ngIf=\"pet| async\">\n    <div class=\"card-block\">\n      <h4 class=\"card-title\">{{(pet| async)?.name}}</h4>\n      <h6 class=\"card-subtitle mb-2\">\n        <div class=\"badge badge-pill badge-default\"\n             *ngIf=\"(pet| async)?.new\">\n          New\n        </div>\n        <div class=\"badge badge-pill badge-info\"\n             *ngIf=\"(pet| async)?.highlighted\">\n          Important\n        </div>\n      </h6>\n      <ul class=\"list-group list-group-flush\">\n        <li class=\"list-group-item\">\n          <div class=\"age\">\n            <span>Age: </span>\n            <span>{{(pet| async)?.age}}</span>\n          </div>\n        </li>\n        <li class=\"list-group-item button-group\">\n          <a class=\"btn btn-primary mr-2\"\n             [routerLink]=\"['edit']\">\n            Edit\n          </a>\n          <button class=\"btn btn-outline-danger\"\n                  (click)=\"remove()\">\n            Delete\n          </button>\n        </li>\n      </ul>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<form class=\"pet-edit\" [formGroup]=\"pet\">\n  <div class=\"form-group\">\n    <label for=\"name\">Name</label>\n    <input type=\"text\" id=\"name\" formControlName=\"name\"/>\n  </div>\n  <div class=\"form-group\">\n    <label for=\"new\">Is the pet new?</label>\n    <input type=\"checkbox\" id=\"new\" formControlName=\"new\" [checked]=\"pet.get('new').value\"/>\n  </div>\n  <div class=\"form-group\">\n    <label>Pet type:</label>\n    <div class=\"row\">\n      <label>\n        <input type=\"radio\" id=\"type-dog\" formControlName=\"type\" value=\"dog\"\n               [checked]=\"pet.get('type').value === 'dog'\"/>\n        <span>Dog</span>\n      </label>\n      <label>\n        <input type=\"radio\" id=\"type-cat\" formControlName=\"type\" value=\"cat\"\n               [checked]=\"pet.get('type').value === 'cat'\"/>\n        <span>Cat</span>\n      </label>\n      <label>\n        <input type=\"radio\" id=\"type-fish\" formControlName=\"type\" value=\"fish\"\n               [checked]=\"pet.get('type').value === 'fish'\"/>\n        <span>Fish</span>\n      </label>\n    </div>\n  </div>\n  <div class=\"form-group\">\n    <label for=\"highlighted\">Is the pet important?</label>\n    <input type=\"checkbox\" id=\"highlighted\" formControlName=\"highlighted\" [checked]=\"pet.get('highlighted').value\"/>\n  </div>\n  <div class=\"form-group\">\n    <label for=\"age\">Age</label>\n    <input type=\"number\" id=\"age\" formControlName=\"age\"/>\n  </div>\n  <div class=\"button-group\">\n    <button class=\"btn btn-primary mr-2\"\n            (click)=\"edit()\">\n      Edit\n    </button>\n    <a class=\"btn btn-secondary mr-4\"\n       [routerLink]=\"['..']\">\n      Cancel\n    </a>\n    <button class=\"btn btn-outline-danger\"\n            (click)=\"remove()\">\n      Delete\n    </button>\n  </div>\n</form>\n"
 
 /***/ }),
 

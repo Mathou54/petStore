@@ -1,6 +1,6 @@
-package com.colinma.repositories;
+package com.petstore.repositories;
 
-import com.colinma.model.Pet;
+import com.petstore.model.Pet;
 import org.springframework.data.repository.CrudRepository;
 
 /**

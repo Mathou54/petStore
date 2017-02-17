@@ -2,9 +2,9 @@ import {Component, OnInit} from "@angular/core";
 import {FormGroup, FormBuilder, Validators} from "@angular/forms";
 import {Location} from "@angular/common";
 import {ActivatedRoute, Router} from "@angular/router";
-import {PetService} from "../services/pet/pet.service";
-import {URL_PARAMS} from "../app.route";
-import {Pet} from "../model/pet";
+import {URL_PARAMS} from "../../app.route";
+import {Pet} from "../../model/pet";
+import {PetService} from "../../services/pet/pet.service";
 
 @Component({
   selector: 'app-pet-edit',

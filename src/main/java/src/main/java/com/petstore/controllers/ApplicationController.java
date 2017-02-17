@@ -1,4 +1,4 @@
-package com.colinma.controllers;
+package com.petstore.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

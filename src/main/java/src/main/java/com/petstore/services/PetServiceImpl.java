@@ -1,7 +1,7 @@
-package com.colinma.services;
+package com.petstore.services;
 
-import com.colinma.model.Pet;
-import com.colinma.repositories.PetRepository;
+import com.petstore.model.Pet;
+import com.petstore.repositories.PetRepository;
 import org.apache.commons.collections4.IteratorUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

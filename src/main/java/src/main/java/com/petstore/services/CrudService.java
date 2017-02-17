@@ -1,4 +1,4 @@
-package com.colinma.services;
+package com.petstore.services;
 
 import java.util.List;
 

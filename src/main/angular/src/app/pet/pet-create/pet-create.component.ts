@@ -2,7 +2,7 @@ import {Component, OnInit} from "@angular/core";
 import {Validators, FormGroup, FormBuilder} from "@angular/forms";
 import {Router} from "@angular/router";
 import {Location} from "@angular/common";
-import {PetService} from "../services/pet/pet.service";
+import {PetService} from "../../services/pet/pet.service";
 
 @Component({
   selector: 'app-pet-create',

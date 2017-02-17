@@ -1,6 +1,6 @@
-package com.colinma.services;
+package com.petstore.services;
 
-import com.colinma.model.Pet;
+import com.petstore.model.Pet;
 
 /**
  * {@link CrudService} Managing {@link Pet}s.

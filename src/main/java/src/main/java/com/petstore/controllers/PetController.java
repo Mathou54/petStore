@@ -1,8 +1,8 @@
-package com.colinma.controllers;
+package com.petstore.controllers;
 
-import com.colinma.controllers.exceptions.NoSuchDataException;
-import com.colinma.model.Pet;
-import com.colinma.services.PetService;
+import com.petstore.controllers.exceptions.NoSuchDataException;
+import com.petstore.model.Pet;
+import com.petstore.services.PetService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;

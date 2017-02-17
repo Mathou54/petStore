@@ -1,6 +1,6 @@
-package com.colinma;
+package com.petstore;
 
-import com.colinma.repositories.PetRepository;
+import com.petstore.repositories.PetRepository;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

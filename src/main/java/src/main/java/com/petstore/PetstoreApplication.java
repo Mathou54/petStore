@@ -1,7 +1,7 @@
-package com.colinma;
+package com.petstore;
 
-import com.colinma.model.Pet;
-import com.colinma.repositories.PetRepository;
+import com.petstore.model.Pet;
+import com.petstore.repositories.PetRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,7 +1,7 @@
-package com.colinma.services;
+package com.petstore.services;
 
-import com.colinma.PetstoreApplicationTests;
-import com.colinma.model.Pet;
+import com.petstore.PetstoreApplicationTests;
+import com.petstore.model.Pet;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

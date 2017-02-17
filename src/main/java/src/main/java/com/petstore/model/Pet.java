@@ -1,4 +1,4 @@
-package com.colinma.model;
+package com.petstore.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
