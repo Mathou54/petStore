@@ -42,8 +42,8 @@ The front-end contains all the `HTML`, `CSS` and `Angular` components to display
 It consume the back-end REST API explained in the next part.
 
 * `http://localhost:8080/pet` let you access the list of all pets;
-* `http://localhost:8080/pet/1` with `1` un ID, let you access the detail of a pet;
-* `http://localhost:8080/pet/1/edit`  with `1` un ID, let you edit the detail of a pet;
+* `http://localhost:8080/pet/1` with `1` an ID, let you access the detail of a pet;
+* `http://localhost:8080/pet/1/edit`  with `1` an ID, let you edit the detail of a pet;
 * `http://localhost:8080/pet/create` let you create a pet.
 
 #### List of pets
@@ -66,7 +66,7 @@ The edition of a pet behaviour can be found at `src/main/angular/src/app/pet/pet
 #### Pet service
 
 The pet service can be found at `src\main\angular\src\app\services\pet\pet.service.ts` and regroup the http calls to the back-end.
-It also contain the handling of any http error returned by the server `http-errors.service.ts`.
+It also contain the handling of any http error returned by the server defined in `http-errors.service.ts`.
 
 ### Back-end
 
