@@ -25,6 +25,7 @@ before_install:
 deploy:
   provider: heroku
   skip_cleanup: true
+  app: m-petstore
   api_key: $HEROKU_KEY
   on:
     branch: master
