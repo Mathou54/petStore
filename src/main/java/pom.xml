@@ -79,11 +79,11 @@
 						</configuration>
 					</execution>
 					<execution>
-						<id>npm run build (compile)</id>
+						<id>npm run build (generate-sources)</id>
 						<goals>
 							<goal>exec</goal>
 						</goals>
-						<phase>compile</phase>
+						<phase>generate-sources</phase>
 						<configuration>
 							<executable>npm</executable>
 							<arguments>
@@ -125,8 +125,7 @@
 				<executions>
 					<execution>
 						<id>copy-resources</id>
-						<!-- here the phase you need -->
-						<phase>validate</phase>
+						<phase>process-sources</phase>
 						<goals>
 							<goal>copy-resources</goal>
 						</goals>
