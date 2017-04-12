@@ -26,7 +26,7 @@ before_deploy:
   - export CHROME_BIN=chromium-browser
   - export DISPLAY=:99.0
   - nvm install 7
-  - ls
+  - ls src/main/webapp
 
 deploy:
   provider: heroku
@@ -34,3 +34,5 @@ deploy:
   skip_cleanup: true
   app: m-petstore
   api_key: $HEROKU_KEY
+  on:
+    branch: master
