@@ -30,6 +30,7 @@ before_deploy:
 
 deploy:
   provider: heroku
+  buildpack: java
   skip_cleanup: true
   app: m-petstore
   api_key: $HEROKU_KEY
