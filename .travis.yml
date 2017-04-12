@@ -27,7 +27,6 @@ before_deploy:
   - export DISPLAY=:99.0
   - nvm install 7
   - cd src/main/java
-  - chmod +x mvnw
 
 deploy:
   provider: heroku
