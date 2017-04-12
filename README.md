@@ -1,6 +1,10 @@
 # Pet Store
 
+[![Build Status](https://travis-ci.org/Mathou54/petStore.svg?branch=master)](https://travis-ci.org/Mathou54/petStore)
+
 Prototype of a pet store application in Angular and Java.
+
+[https://m-petstore.herokuapp.com/pet](https://m-petstore.herokuapp.com/pet)
 
 ## Prerequisites
 
