@@ -22,6 +22,7 @@ before_install:
   - cd src/main/angular
   - npm install
   - npm run build -- --aot --prod
+  - mkdir ../java/src/main/webapp/
   - cp -r dist/* ../java/src/main/webapp/
   - cd ../java
   - chmod +x mvnw
