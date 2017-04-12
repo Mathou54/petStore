@@ -26,10 +26,11 @@ before_deploy:
   - export CHROME_BIN=chromium-browser
   - export DISPLAY=:99.0
   - nvm install 7
-  - cd src/main/java
+  - ls
 
 deploy:
   provider: heroku
+  buildpack: java
   skip_cleanup: true
   app: m-petstore
   api_key: $HEROKU_KEY
