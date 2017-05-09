@@ -27,6 +27,7 @@ public class PetstoreApplication {
 			repository.save(new Pet("Palmer", false, Pet.PetType.dog, false, 4));
 			repository.save(new Pet("Dessler", true, Pet.PetType.cat, true, 5));
 			repository.save(new Pet("Roger", false, Pet.PetType.fish, true, 6));
+			repository.save(new Pet("Tom", false, Pet.PetType.cat, true, 18));
 			repository.save(new Pet("Helder the Golden Fish", false, Pet.PetType.dog, true, 108));
 			repository.save(new Pet("Céline the Dolphin", true, Pet.PetType.cat, true, 22));
 			repository.save(new Pet("Bobo the Dodo", false, Pet.PetType.dog, false, 500));
