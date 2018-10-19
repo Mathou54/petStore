@@ -1,21 +1,21 @@
-import {Component, OnInit, Input} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import {Component, Input, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
 
-import {Pet} from "../../../model/pet";
+import {Pet} from '../../../model/pet';
 
 @Component({
-  selector: 'app-pet',
-  templateUrl: './pet.component.html',
-  styleUrls: ['./pet.component.css']
+	selector: 'app-pet',
+	templateUrl: './pet.component.html',
+	styleUrls: ['./pet.component.css']
 })
 export class PetComponent implements OnInit {
 
-  @Input() pet: Pet;
+	@Input() pet: Pet;
 
-  constructor(private route: ActivatedRoute) {
-  }
+	constructor(private route: ActivatedRoute) {
+	}
 
-  ngOnInit(): void {
-  }
+	ngOnInit(): void {
+	}
 
 }

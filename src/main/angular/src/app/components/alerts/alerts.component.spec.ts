@@ -1,34 +1,35 @@
 /* tslint:disable:no-unused-variable */
-import {async, ComponentFixture, TestBed} from "@angular/core/testing";
-import {AlertsComponent} from "./alerts.component";
-import {AlertsService} from "./alerts.service";
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {AlertsComponent} from './alerts.component';
+import {AlertsService} from './alerts.service';
 
 describe('AlertsComponent', () => {
-  let component: AlertsComponent;
-  let fixture: ComponentFixture<AlertsComponent>;
+	let component: AlertsComponent;
+	let fixture: ComponentFixture<AlertsComponent>;
 
-  beforeEach(async(() => {
+	beforeEach(async(() => {
 
-    let mockAlertsService = {
-      getAlerts: function(){}
-    };
+		const mockAlertsService = {
+			getAlerts: function () {
+			}
+		};
 
-    spyOn(mockAlertsService, 'getAlerts');
+		spyOn(mockAlertsService, 'getAlerts');
 
-    TestBed.configureTestingModule({
-      declarations: [AlertsComponent],
-      providers: [{provide: AlertsService, useValue: mockAlertsService}]
-    })
-      .compileComponents();
-  }));
+		TestBed.configureTestingModule({
+			declarations: [AlertsComponent],
+			providers: [{provide: AlertsService, useValue: mockAlertsService}]
+		})
+			.compileComponents();
+	}));
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(AlertsComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+	beforeEach(() => {
+		fixture = TestBed.createComponent(AlertsComponent);
+		component = fixture.componentInstance;
+		fixture.detectChanges();
+	});
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+	it('should create', () => {
+		expect(component).toBeTruthy();
+	});
 });
