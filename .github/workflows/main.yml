@@ -1,0 +1,57 @@
+name: main
+
+on: [ push, pull_request ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [ 12.x ]
+        java-version: [ 8 ]
+
+    steps:
+      - uses: actions/checkout@v1
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install Chrome
+        run: |
+          wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+          sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
+          sudo apt-get update
+          sudo apt-get install -y google-chrome-stable
+      - name: Go to frontend
+        run: cd src/main/angular
+      - name: npm ci
+        run: npm ci
+      - name: npm lint
+        run: npm run lint
+      - name: npm build
+        run: npm run build
+      - name: Copy build to backend
+        run: |
+          mkdir ../java/src/main/webapp/
+          cp -r dist/* ../java/src/main/webapp/
+      - name: npm test
+        run: npm test
+      - name: npm e2e
+        run: npm run e2e
+
+      - name: Go to backend
+        run: cd ../java
+      - name: Set up JDK ${{ matrix.java-version }}
+        uses: actions/setup-java@v2
+        with:
+          java-version: ${{ matrix.java-version }}
+          distribution: 'adopt'
+      - name: Build with Maven
+        run: mvn -B package --file pom.xml
+
+
+#      -   name: deploy to firebase
+#          if: github.ref == 'refs/heads/master' && matrix.node-version == '12.x'
+#          run: npm run deploy -- --token=${{secrets.FIREBASE_KEY}}
