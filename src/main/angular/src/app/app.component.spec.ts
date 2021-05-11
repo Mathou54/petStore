@@ -1,42 +1,40 @@
 /* tslint:disable:no-unused-variable */
 
-import {TestBed, async} from "@angular/core/testing";
-import {AppComponent} from "./app.component";
-import {CUSTOM_ELEMENTS_SCHEMA} from "@angular/core";
-import {RouterTestingModule} from "@angular/router/testing";
-import {Location} from "@angular/common";
+import {TestBed, waitForAsync} from '@angular/core/testing';
+import {AppComponent} from './app.component';
+import {RouterTestingModule} from '@angular/router/testing';
 
 describe('AppComponent', () => {
-  beforeEach(() => {
+	beforeEach(waitForAsync(() => {
 
-    let mockLocation = {
-      path: function () {
-      }
-    };
+		// const mockLocation = {
+		// 	path: function () {
+		// 	}
+		// };
+		//
+		// spyOn(mockLocation, 'path').and.returnValue('/truc/machin');
 
-    spyOn(mockLocation, 'path').and.returnValue('/truc/machin')
+		TestBed.configureTestingModule({
+			imports: [
+				RouterTestingModule
+			],
+			declarations: [
+				AppComponent
+			],
+			// providers: [{provide: Location, useValue: mockLocation}]
+		}).compileComponents();
+	}));
 
-    TestBed.configureTestingModule({
-      schemas: [CUSTOM_ELEMENTS_SCHEMA],
-      imports: [RouterTestingModule],
-      declarations: [
-        AppComponent
-      ],
-      providers: [{provide: Location, useValue: mockLocation}]
-    });
-    TestBed.compileComponents();
-  });
+	fit('should create the app', () => {
+		const fixture = TestBed.createComponent(AppComponent);
+		const app = fixture.debugElement.componentInstance;
+		expect(app).toBeTruthy();
+	});
 
-  it('should create the app', async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app).toBeTruthy();
-  }));
+	it('isActive should return true if it ends with the ', waitForAsync(() => {
+		const fixture = TestBed.createComponent(AppComponent);
+		const app = fixture.debugElement.componentInstance;
 
-  it('isActive should return true if it ends with the ', async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-
-    expect(app.isActive('/truc/machin')).toBeTruthy();
-  }));
+		expect(app.isActive('/truc/machin')).toBeTruthy();
+	}));
 });

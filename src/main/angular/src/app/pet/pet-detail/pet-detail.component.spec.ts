@@ -1,37 +1,37 @@
 /* tslint:disable:no-unused-variable */
-import {async, ComponentFixture, TestBed} from "@angular/core/testing";
-import {PetDetailComponent} from "./pet-detail.component";
-import {RouterTestingModule} from "@angular/router/testing";
-import {PetService} from "../../services/pet/pet.service";
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
+import {PetDetailComponent} from './pet-detail.component';
+import {RouterTestingModule} from '@angular/router/testing';
+import {PetService} from '../../services/pet/pet.service';
 
 describe('PetDetailComponent', () => {
-  let component: PetDetailComponent;
-  let fixture: ComponentFixture<PetDetailComponent>;
+	let component: PetDetailComponent;
+	let fixture: ComponentFixture<PetDetailComponent>;
 
-  beforeEach(async(() => {
+	beforeEach(waitForAsync(() => {
 
-    let mockPetService = {
-      get: function () {
-      }
-    };
+		const mockPetService = {
+			get: function () {
+			}
+		};
 
-    spyOn(mockPetService, 'get');
+		spyOn(mockPetService, 'get');
 
-    TestBed.configureTestingModule({
-      imports: [RouterTestingModule],
-      declarations: [PetDetailComponent],
-      providers: [{provide: PetService, useValue: mockPetService}]
-    })
-      .compileComponents();
-  }));
+		TestBed.configureTestingModule({
+			imports: [RouterTestingModule],
+			declarations: [PetDetailComponent],
+			providers: [{provide: PetService, useValue: mockPetService}]
+		})
+			.compileComponents();
+	}));
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(PetDetailComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+	beforeEach(() => {
+		fixture = TestBed.createComponent(PetDetailComponent);
+		component = fixture.componentInstance;
+		fixture.detectChanges();
+	});
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+	it('should create', () => {
+		expect(component).toBeTruthy();
+	});
 });
