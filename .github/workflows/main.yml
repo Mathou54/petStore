@@ -24,31 +24,34 @@ jobs:
           sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
           sudo apt-get update
           sudo apt-get install -y google-chrome-stable
-      - name: Go to frontend
-        run: cd src/main/angular
       - name: npm ci
+        working-directory: ./src/main/angular
         run: npm ci
       - name: npm lint
+        working-directory: ./src/main/angular
         run: npm run lint
       - name: npm build
+        working-directory: ./src/main/angular
         run: npm run build
       - name: Copy build to backend
+        working-directory: ./src/main/angular
         run: |
           mkdir ../java/src/main/webapp/
           cp -r dist/* ../java/src/main/webapp/
       - name: npm test
+        working-directory: ./src/main/angular
         run: npm test
       - name: npm e2e
+        working-directory: ./src/main/angular
         run: npm run e2e
 
-      - name: Go to backend
-        run: cd ../java
       - name: Set up JDK ${{ matrix.java-version }}
         uses: actions/setup-java@v2
         with:
           java-version: ${{ matrix.java-version }}
           distribution: 'adopt'
       - name: Build with Maven
+        working-directory: ./src/main/java
         run: mvn -B package --file pom.xml
 
 
