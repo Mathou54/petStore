@@ -30,7 +30,7 @@ import {HttpClientModule} from '@angular/common/http';
 		FormsModule,
 		ReactiveFormsModule,
 		HttpClientModule,
-		RouterModule.forRoot(routes)
+		RouterModule.forRoot(routes, {relativeLinkResolution: 'legacy'})
 	],
 	providers: [
 		HttpErrorsService,

@@ -1,5 +1,5 @@
 /* tslint:disable:no-unused-variable */
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import {ListComponent} from './list.component';
 import {PetService} from '../../services/pet/pet.service';
@@ -8,7 +8,7 @@ describe('ListComponent', () => {
 	let component: ListComponent;
 	let fixture: ComponentFixture<ListComponent>;
 
-	beforeEach(async(() => {
+	beforeEach(waitForAsync(() => {
 
 		const mockPetService = {
 			list: function () {

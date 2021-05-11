@@ -1,5 +1,5 @@
 /* tslint:disable:no-unused-variable */
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 import {AlertsComponent} from './alerts.component';
 import {AlertsService} from './alerts.service';
 
@@ -7,7 +7,7 @@ describe('AlertsComponent', () => {
 	let component: AlertsComponent;
 	let fixture: ComponentFixture<AlertsComponent>;
 
-	beforeEach(async(() => {
+	beforeEach(waitForAsync(() => {
 
 		const mockAlertsService = {
 			getAlerts: function () {

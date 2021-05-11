@@ -1,5 +1,5 @@
 /* tslint:disable:no-unused-variable */
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 import {PetEditComponent} from './pet-edit.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {RouterTestingModule} from '@angular/router/testing';
@@ -9,7 +9,7 @@ describe('PetEditComponent', () => {
 	let component: PetEditComponent;
 	let fixture: ComponentFixture<PetEditComponent>;
 
-	beforeEach(async(() => {
+	beforeEach(waitForAsync(() => {
 
 		const mockPetService = {};
 
